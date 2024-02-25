@@ -8,7 +8,7 @@ st.set_page_config(page_title= 'DataEx',
 tab1, tab2, tab3 = st.tabs(['Nuestros servicios','Sobre nosotros','Contáctenos'])
 
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="clientes", usecols = [0,1,2,3])
+df = conn.read(worksheet= 'clientes')
 df = df.dropna(how="all")
 
 with tab1:
@@ -49,10 +49,12 @@ with tab2:
     st.write('Nos esforzamos por mantener un entorno de trabajo ordenado y estructurado, donde cada tarea y proceso esté claramente definido y coordinado. Al priorizar la organización, optimizamos nuestro rendimiento y garantizamos resultados consistentes y confiables.')
     st.subheader('Excelencia')
     st.write('Buscamos constantemente superar las expectativas y alcanzar la más alta calidad en cada proyecto que entregamos y siempre aspiramos a la grandeza en todo lo que emprendemos.')
+
 with tab3:
     with st.container(border= True):
         st.header('Formulario de contacto')
         st.write('Póngase en contacto con nosotros a través de nuestro formulario y a la brevedad le responderemos:')
+        
         with st.form('contacto'):
             name = st.text_input('Nombre')
             email = st.text_input('Correo electrónico')
@@ -69,11 +71,10 @@ with tab3:
                     "mensaje": message
                     }]
                                     )
-
-    updated_df = pd.concat([df, new_df], ignore_index= True)
-    conn.update(worksheet= "datos", data=updated_df)
-    st.cache_data.clear()
-    st.success("¡Pronto nos pondremos en contacto!")
+            updated_df = pd.concat([df, new_df], ignore_index= True)
+            conn.update(worksheet= "clientes", data=updated_df)
+            st.cache_data.clear()
+            st.success("¡Pronto nos pondremos en contacto!")
                 
 
     with st.container(border= True):
