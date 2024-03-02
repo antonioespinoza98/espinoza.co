@@ -8,7 +8,7 @@ st.set_page_config(page_title= 'DataEx',
 tab1, tab2, tab3 = st.tabs(['Nuestros servicios','Sobre nosotros','Contáctenos'])
 
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet= 'clientes')
+df = conn.read(worksheet="clientes", usecols = [0,1,2,3])
 df = df.dropna(how="all")
 
 with tab1:
