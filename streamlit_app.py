@@ -3,7 +3,8 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
 st.set_page_config(page_title= 'DataEx',
-                   page_icon= ':globe_with_meridians:')
+                   page_icon= ':globe_with_meridians:',
+                   menu_items={'About': "# Hecho por Marco Espinoza"})
 
 tab1, tab2, tab3 = st.tabs(['Nuestros servicios','Sobre nosotros','Contáctenos'])
 
@@ -18,14 +19,26 @@ with tab1:
     st.image(".\imagenes\page1.jpg")
     st.caption("Photo by Clay Banks on Unsplash")
     st.write('Nuestro enfoque integral pretende brindar un servicio integral con una fuerte influencia cuantitativa, junto con la tecnología más moderna del mercado.')
-    # SERVICIOS 
-    with st.container(border= True):
-        st.header('Diseño Muestral')
-    with st.container(border= True):
-        st.header('Metodología')
-    with st.container(border= True):
-        st.header('Análisis de datos')
+    st.write('Con el objetivo de poder traducir las complejidades metodológicas de la estadística asesorando al investigador(a) en todo momento. Para el cual, utilizamos las mejores prácticas estadísticas con el fin de optimizar recursos y dinero. Lo cual permite a su vez, caminar hacia mejores estimaciones.')
+    col1, col2, col3 = st.columns(3)
+        # SERVICIOS 
+    with col1:
+        with st.container(border= True):
+            st.header('Diseño Muestral')
+            st.write('Ofrecemos orientación experta en la planificación y ejecución de estrategias de muestreo y diseño muestral, asegurando la representatividad y fiabilidad de los datos recopilados para tus investigaciones o estudios.')
+    with col2:
+        with st.container(border= True):
+            st.header('Metodología')
+            st.write('Te asistimos en la fase inicial de tu investigación, desde la formulación de hipótesis hasta la planificación del diseño metodológico, ayudándote a establecer bases sólidas para un estudio riguroso y efectivo.')
+    with col3:
+        with st.container(border= True):
+            st.header('Análisis de datos')
+            st.write('Realizamos análisis exhaustivos utilizando las técnicas estadísticas y herramientas más adecuadas para extraer información relevante y significativa, ofreciendo resultados valiosos para su investigación.')
     
+    with st.container(border=True):
+        st.header('Storytelling')
+        st.write('Transformamos los hallazgos de tus datos en narrativas cautivadoras y accesibles, comunicando de manera efectiva la historia que subyace en ellos y permitiéndole al investigador(a) conectar con la audiencia, ya sea para presentaciones, informes o publicaciones.')
+
 with tab2: 
     # Quienes somos
     st.header('Nuestro equipo')
