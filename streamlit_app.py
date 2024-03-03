@@ -16,7 +16,7 @@ with tab1:
     st.title('DataEx')
     st.write('***Transformamos datos en descubrimientos***')
     st.header('Nuestros servicios')
-    st.image("/imagenes/page1.jpg")
+    st.image("imagenes/page1.jpg")
     st.caption("Photo by Clay Banks on Unsplash")
     st.write('Nuestro enfoque integral pretende brindar un servicio integral con una fuerte influencia cuantitativa, junto con la tecnología más moderna del mercado.')
     st.write('Con el objetivo de poder traducir las complejidades metodológicas de la estadística asesorando al investigador(a) en todo momento. Para el cual, utilizamos las mejores prácticas estadísticas con el fin de optimizar recursos y dinero. Lo cual permite a su vez, caminar hacia mejores estimaciones.')
@@ -44,7 +44,7 @@ with tab2:
     st.header('Nuestro equipo')
     with st.container(border= True):
         st.subheader("Marco Espinoza")
-        st.image("/imagenes/marco.jpeg")
+        st.image("imagenes/marco.jpeg")
         st.write("Estadístico con dos años de experiencia laboral en el mundo de la consultoría en análisis de datos. Apasionado por la investigación y durante sus ratos libres por el montañismo.")
 
     # Misión
